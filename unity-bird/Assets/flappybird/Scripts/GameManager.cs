@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         return Mathf.Clamp(((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin), outputMin, outputMax);
     }
 
-    void TraiterOscAngle(OSCMessage message)
+    void TraiterOscBouton(OSCMessage message)
     {
         // Si le message n'a pas d'argument ou l'argument n'est pas un Int on l'ignore
         if (message.Values.Count == 0)
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
      void Start()
     {
         Stop();
-        oscReceiver.Bind("/bouton", TraiterOscAngle);
+        oscReceiver.Bind("/bouton", TraiterOscBouton);
     }
 
     public void Stop()
